@@ -428,7 +428,7 @@
 <ul>
 <li>Reconocen la sintaxis de un lenguaje de programación</li>
 <li>Nos ayuda a enviar código a un proceso de R en ejecución</li>
-<li>Herramientas para facilitar</li>
+<li>Herramientas para facilitar edición</li>
 </ul></li>
 </ul>
 </section>
@@ -464,7 +464,7 @@ Visual Studio + <a href="https://docs.microsoft.com/en-us/visualstudio/rtvs">RTV
 </div>
 <ul>
 <li><p>Fuentes y texto - 🔗 <a href="https://www.nerdfonts.com/font-downloads">Nerd Fonts</a></p></li>
-<li><p>Disposicón de los páneles</p></li>
+<li><p>Disposición de los páneles</p></li>
 </ul>
 </section>
 <section id="personalizando-el-arranque-en-r" class="slide level2">
@@ -484,10 +484,8 @@ Visual Studio + <a href="https://docs.microsoft.com/en-us/visualstudio/rtvs">RTV
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># download package details ------------------------------------------------</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>p_db <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">CRAN_package_db</span>()</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># select variables of interest -------------------------------------------</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>p_db <span class="ot">&lt;-</span> p_db <span class="sc">%&gt;%</span> <span class="fu">select</span>(Package, Author, Description, Title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a>p_db <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">CRAN_package_db</span>()</span>
+<span id="cb1-4"><a href="#cb1-4"></a>p_db <span class="ot">&lt;-</span> p_db <span class="sc">%&gt;%</span> <span class="fu">select</span>(Package, Author, Description, Title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Veamos si sus campos o disciplinas aparecen en los títulos o descripciones.</p>
 </section>
@@ -585,7 +583,9 @@ Visual Studio + <a href="https://docs.microsoft.com/en-us/visualstudio/rtvs">RTV
 <li>insertar ‘pipe’ (<code>ctrl</code>+<code>shift</code>+<code>m</code>)</li>
 <li>operador de asignación (<code>alt</code>+<code>-</code>)</li>
 <li>arrastrar línea (<code>alt</code>+<code>up</code>) or (<code>alt</code>+<code>down</code>)</li>
-<li>ejectutar línea (<code>ctrl</code>+<code>enter</code>)</li>
+<li>ejecutar línea (<code>ctrl</code>+<code>enter</code>)</li>
+<li>indentar o ‘desindentar’ selección (<code>tab</code> y <code>shift</code>+<code>tab</code>)</li>
+<li>convertir selección a comentario (<code>ctrl</code> + <code>shift</code> + <code>c</code>)</li>
 </ul>
 <div style="text-align: right">
 <p><a href="https://appsilon.com/rstudio-shortcuts-and-tips/">RStudio Shortcuts and Tips (2021)</a></p>
