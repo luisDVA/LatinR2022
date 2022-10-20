@@ -1,0 +1,273 @@
+---
+title: "Herramientas y atajos para programar eficientemente con RStudio"
+author: "Luis D. Verde Arregoitia"
+subtitle: "LatinR 2022"
+format: revealjs
+editor: visual
+---
+
+```{r setup, include=FALSE}
+library(fontawesome)
+```
+
+## 
+
+::: columns
+::: {.column width="50%"}
+![](imgs/luisconmila.jpg){width="50%"}\
+[`r fa(name = "twitter")` \@LuisDVerde](https://twitter.com/LuisDVerde)\
+[`r fa(name = "github")` \@LuisDVA](https://github.com/luisdva)\
+[`r fa(name = "link")` liomys.mx](https://liomys.mx)\
+[`r fa(name = "paper-plane")` luis\@liomys.mx](mailto:luis@liomys.mx)
+:::
+
+::: {.column width="50%"}
+-   Mastozoología
+-   Macroecología
+-   Modelos filogenéticos
+-   Limpieza de datos
+:::
+:::
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="50%"}
+#### La consola
+
+![](imgs/desert-gd4162a088_1920.jpg){width="80%"}
+:::
+
+::: {.column width="50%"}
+#### IDE
+
+![](imgs/cockpit-g11d804731_1920.jpg){width="50%"}
+:::
+:::
+
+## Entornos de Programación
+
+### IDEs - Integrated development environments
+
+</br>
+
+-   Editor de texto
+    -   Reconocen la sintaxis de un lenguaje de programación
+    -   Nos ayuda a enviar código a un proceso de R en ejecución
+    -   Herramientas para facilitar la edición de texto
+
+## 
+
+RStudio\
+Emacs + ESS (https://ess.r-project.org)\
+vim + Nvim-R: ([Turn Vim Into an IDE for R](https://medium.com/free-code-camp/turning-vim-into-an-r-ide-cd9602e8c217))\
+Visual Studio + [RTVS](https://docs.microsoft.com/en-us/visualstudio/rtvs)
+
+## RStudio
+
+------------------------------------------------------------------------
+
+![](imgs/rstudiocheat.png)
+
+------------------------------------------------------------------------
+
+![](imgs/remote-work-airplane-laptop.jpg)
+
+## Personalización
+
+-   Colores para el IDE - 🔗 [tmThemeEditor](https://tmtheme-editor.herokuapp.com) por Allen Bargi
+
+::: {style="backgroundcolor: pink"}
+*No one at the coffee shop will know you're serious unless you have a dark background*
+
+::: {style="text-align: right"}
+*-Jared Lander*\
+📼 [R: Then and now](https://www.youtube.com/watch?v=gjpNEVcG1nU)
+:::
+:::
+
+-   Fuentes y texto - 🔗 [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
+
+-   Disposición de los páneles
+
+## Personalizando el arranque en R
+
+El archivo `.Rprofile` file contiene código que se ejecuta cada que arrancamos R.
+
+</br> [`.Rprofile` generalmente vive en nuestro directorio de inicio]{style="font-size: 1.2em; text-align: center"}
+
+</br> Podemos modificarlo con `usethis::edit_r_profile()`
+
+*Usar con precaución para no perder reproducibilidad*
+
+::: {style="text-align: right"}
+R Startup\
+[What they forgot to teach you about R](https://rstats.wtf/r-startup.html%5D)
+:::
+
+## Práctica {background-color="#a4c5ff"}
+
+Exploremos la diversidad de paquetes que hay en CRAN hoy mismo:
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(dplyr)
+library(stringr)
+p_db <- tools::CRAN_package_db()
+p_db <- p_db %>% select(Package, Author, Description, Title)
+```
+
+Veamos si sus campos o disciplinas aparecen en los títulos o descripciones.
+
+## 📦 `annotater`
+
+https://annotater.liomys.mx
+
+Agregar detalles sobre los paquetes que estamos mencionando en nuestros scripts
+
+Fuente y versión
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(dplyr)   # CRAN v1.0.7
+library(janitor) # CRAN v2.1.0
+```
+
+Título, fuente y versión
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(readr) # Read Rectangular Text Data, CRAN v2.0.2
+```
+
+-   *También podemos anotar cuáles funciones de c/ paquete estamos usando*
+
+## 📦 `littleboxes`
+
+https://github.com/ThinkR-open/littleboxes
+
+Cajas para títulos
+
+```{r}
+#| echo: true
+#| eval: false
+
+##%##################################################%##
+#                                                      #
+####    Mi análisis en R ,  Luis, Oct 2022          ####
+#                                                      #
+##%##################################################%##
+
+```
+
+## 📦 `packup`
+
+https://github.com/MilesMcBain/packup
+
+Acomoda los llamados a `library()` al principio del archivo, quitando duplicados y ordenando alfabéticamente.
+
+> El orden alfabético puede no ser adecuado
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+
+data("starbucks")
+# create vectors 
+library(purrr)
+fat <- starbucks$fat
+carb <- starbucks$carb
+library(purrr)
+library(openintro)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+
+library(openintro)
+library(purrr)
+data("starbucks")
+# create vectors 
+fat <- starbucks$fat
+carb <- starbucks$carb
+```
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Secciones de código y el esquema de documento
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Mi sección nueva ------------------------------------ 
+```
+
+Dividir un script en segmentos discretos
+
+Las secciones se pueden colapsar y funcionan con el panel de navegación del editor de fuente.
+
+-   Crear con cuatro guiones después de un comentario
+-   Insertar con `ctrl` + `shift` + `R`
+
+## Utilidades geniales
+
+### 📦 [`datapasta`](https://milesmcbain.github.io/datapasta/)
+
+Copiar y pegar datos desde y hacia R, manipular vectores
+
+![](imgs/tribble_paste.gif){width="48%"}
+
+## Programando eficientemente
+
+[Ctrl == ⌘ Command && Alt == ⌥ Option]{style="font-size: 1.5em; text-align: center"}
+
+-   cursor multilinea (`ctrl`+`alt`+`arriba`) or (`ctrl`+`alt`+`abajo`)
+    -   cesar con `escape`
+
+## Atajos de teclado
+
+-   panel de atajos (`alt`+`shift`+`k`)
+-   insertar 'pipe' (`ctrl`+`shift`+`m`)
+-   operador de asignación (`alt`+`-`)
+-   arrastrar línea (`alt`+`up`) or (`alt`+`down`)
+-   ejecutar línea (`ctrl`+`enter`)
+-   indentar o 'desindentar' selección (`tab`, `shift`+`tab`)
+-   convertir línea o selección en comentario (`ctr`+`shift`+`c`)
+
+::: {style="text-align: right"}
+[RStudio Shortcuts and Tips (2021)](https://appsilon.com/rstudio-shortcuts-and-tips/)
+:::
+
+## Atajos útiles
+
+-   Cambiar enfoque entre paneles
+    -   (`ctrl`+`1` hasta `8`)
+    -   Maximizar paneles con (`ctrl`+`shift`+`1` hasta `8`)
+
+![](imgs/movingfocus.gif){width="48%"}
+
+## Más atajos
+
+Modificar selección [`ctrl`+`alt`+`shift`+`m`]{style="color: orange"}
+
+Para acceder a la documentación [?]{style="color: orange"} o [F1]{style="color: orange"}
+
+Abriendo objetos en el visualizador
+
+[`ctrl` + click]{style="color: orange"}
+
+# !Gracias!
