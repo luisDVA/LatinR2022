@@ -54,7 +54,7 @@ library(fontawesome)
 -   Editor de texto
     -   Reconocen la sintaxis de un lenguaje de programación
     -   Nos ayuda a enviar código a un proceso de R en ejecución
-    -   Herramientas para facilitar la edición de texto
+    -   Herramientas para facilitar
 
 ## 
 
@@ -88,7 +88,7 @@ Visual Studio + [RTVS](https://docs.microsoft.com/en-us/visualstudio/rtvs)
 
 -   Fuentes y texto - 🔗 [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
 
--   Disposición de los páneles
+-   Disposicón de los páneles
 
 ## Personalizando el arranque en R
 
@@ -115,7 +115,9 @@ Exploremos la diversidad de paquetes que hay en CRAN hoy mismo:
 
 library(dplyr)
 library(stringr)
+# download package details ------------------------------------------------
 p_db <- tools::CRAN_package_db()
+# select variables of interest -------------------------------------------
 p_db <- p_db %>% select(Package, Author, Description, Title)
 ```
 
@@ -244,9 +246,7 @@ Copiar y pegar datos desde y hacia R, manipular vectores
 -   insertar 'pipe' (`ctrl`+`shift`+`m`)
 -   operador de asignación (`alt`+`-`)
 -   arrastrar línea (`alt`+`up`) or (`alt`+`down`)
--   ejecutar línea (`ctrl`+`enter`)
--   indentar o 'desindentar' selección (`tab`, `shift`+`tab`)
--   convertir línea o selección en comentario (`ctr`+`shift`+`c`)
+-   ejectutar línea (`ctrl`+`enter`)
 
 ::: {style="text-align: right"}
 [RStudio Shortcuts and Tips (2021)](https://appsilon.com/rstudio-shortcuts-and-tips/)
@@ -271,3 +271,24 @@ Abriendo objetos en el visualizador
 [`ctrl` + click]{style="color: orange"}
 
 # !Gracias!
+
+
+::: columns
+::: {.column width="50%"}
+
+:::
+
+::: {.column width="50%"}
+
+:::
+:::
+
+::: columns
+::: {.column width="50%"}
+
+:::
+
+::: {.column width="50%"}
+
+:::
+:::
